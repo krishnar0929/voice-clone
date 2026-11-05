@@ -5,3 +5,5 @@ samples/
 *.wav
 *.m4a
 *.mp3
+out/
+.venv-chatterbox/

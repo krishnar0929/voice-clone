@@ -1,0 +1,4 @@
+# Local cloning with Chatterbox. Needs Python 3.11 (see README).
+chatterbox-tts
+requests>=2.31
+python-dotenv>=1.0

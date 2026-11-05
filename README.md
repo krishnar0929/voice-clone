@@ -56,6 +56,24 @@ python talk.py          # press Enter, speak, press Enter again
 python talk.py --type   # type instead of speaking
 ```
 
+## 6. Local cloning (Chatterbox, free, offline)
+Chatterbox is an open-source (MIT) model that runs on your Mac: no API key, no credits, nothing uploaded. It clones from one short reference clip at generation time, so there's no training step. It needs **Python 3.11**, in its own environment:
+```bash
+brew install python@3.11
+python3.11 -m venv .venv-chatterbox
+source .venv-chatterbox/bin/activate
+pip install -r requirements-chatterbox.txt
+```
+Pick a reference clip (10–20 s, your most natural-sounding one), then run the test set:
+```bash
+python chatterbox_test.py --pick ../voice_samples/nov4/wav
+python chatterbox_test.py --ref ../voice_samples/nov4/wav/Clip16.wav
+python chatterbox_test.py --ref ../voice_samples/nov4/wav/Clip16.wav --fish   # same lines in your Fish voice too
+```
+Results land in `out/`. The first run downloads the model (a few GB); on a MacBook Air each line takes several seconds to generate.
+
+Tuning: `--exaggeration 0.3–0.7` (expressiveness) and `--cfg 0.3–0.5` (lower = slower, calmer delivery). Try 2–3 different reference clips; the reference matters more than any setting.
+
 ## Making it sound natural
 - Write text the way people talk: contractions, short sentences, commas for pauses, "..." for a thinking pause.
 - Fish S2.1 understands emotion tags such as `(excited)`, `(laughing)`, `(thoughtful)`.
