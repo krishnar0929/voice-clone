@@ -1,0 +1,5 @@
+anthropic>=0.40
+requests>=2.31
+sounddevice>=0.4.6
+numpy>=1.26
+python-dotenv>=1.0
